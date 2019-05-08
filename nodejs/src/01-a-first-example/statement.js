@@ -10,11 +10,7 @@ function statement(invoice, plays) {
   return result;
 
   function totalVolumeCredits() {
-    let volumeCredits = 0;
-    for (const aPerformance of invoice.performances) {
-      volumeCredits += volumeCreditsFor(aPerformance);
-    }
-    return volumeCredits;
+    return invoice.performances.reduce((preview, current) => preview + volumeCreditsFor(current), 0);
   }
 
   function usdFormat(aNumber){
