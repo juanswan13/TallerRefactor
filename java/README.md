@@ -1,1 +1,1 @@
-# refactoring-2-exercises
+# refactoring-java
