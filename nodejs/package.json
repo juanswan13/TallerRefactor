@@ -1,0 +1,22 @@
+{
+  "name": "refactoring-2-exercises",
+  "version": "1.0.0",
+  "description": "Refactoring 2 execises",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aperdomob/refactoring-2-exercises.git"
+  },
+  "author": "Alejandro Perdomo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aperdomob/refactoring-2-exercises/issues"
+  },
+  "homepage": "https://github.com/aperdomob/refactoring-2-exercises#readme",
+  "devDependencies": {
+    "jest": "^24.7.1"
+  }
+}
