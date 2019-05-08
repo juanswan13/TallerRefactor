@@ -6,10 +6,10 @@ function statement(invoice, plays) {
   for (const perf of invoice.performances) {
     thisAmount = amountFor(perf);
     volumeCredits += volumeCreditsFor(perf);
-    result += `  ${playFor(perf).name}: ${createFormat(thisAmount / 100)} (${perf.audience} seats)\n`;
+    result += `  ${playFor(perf).name}: ${createFormat(thisAmount)} (${perf.audience} seats)\n`;
     totalAmount += thisAmount;
   }
-  result += `Amount owed is ${createFormat(totalAmount / 100)}\n`;
+  result += `Amount owed is ${createFormat(totalAmount)}\n`;
   result += `You earned ${volumeCredits} credits\n`;
   return result;
 
@@ -18,7 +18,7 @@ function statement(invoice, plays) {
         style: 'currency',
         currency: 'USD',
         minimumFractionDigits: 2
-      }).format(aNumber);
+      }).format(aNumber/100);
   }
   function volumeCreditsFor(perf) {
     let volumeCreditsResult = Math.max(perf.audience - 30, 0);
