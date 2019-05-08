@@ -4,16 +4,15 @@ function statement(invoice, plays) {
   let result = `Statement for ${invoice.customer}\n`;
 
   for (const perf of invoice.performances) {
-    thisAmount = amountFor(perf);
     volumeCredits += volumeCreditsFor(perf);
-    result += `  ${playFor(perf).name}: ${createFormat(thisAmount)} (${perf.audience} seats)\n`;
-    totalAmount += thisAmount;
+    result += `  ${playFor(perf).name}: ${usdFormat(amountFor(perf))} (${perf.audience} seats)\n`;
+    totalAmount += amountFor(perf);
   }
-  result += `Amount owed is ${createFormat(totalAmount)}\n`;
+  result += `Amount owed is ${usdFormat(totalAmount)}\n`;
   result += `You earned ${volumeCredits} credits\n`;
   return result;
 
-  function createFormat(aNumber){
+  function usdFormat(aNumber){
       return new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD',
