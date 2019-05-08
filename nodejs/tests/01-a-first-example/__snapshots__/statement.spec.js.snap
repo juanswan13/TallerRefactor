@@ -9,3 +9,23 @@ Amount owed is $1,730.00
 You earned 47 credits
 "
 `;
+
+exports[`performances with little audience 1`] = `
+"Statement for Alternative Performance
+  As You Like It: $345.00 (15 seats)
+  Othello: $400.00 (25 seats)
+Amount owed is $745.00
+You earned 3 credits
+"
+`;
+
+exports[`performances with minimal audience 1`] = `
+"Statement for Alternative Performance
+  As You Like It: $360.00 (20 seats)
+  Othello: $400.00 (30 seats)
+Amount owed is $760.00
+You earned 4 credits
+"
+`;
+
+exports[`type does not exists 1`] = `"unknown type: science-fiction"`;
