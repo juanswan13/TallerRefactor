@@ -1,22 +1,21 @@
 function statement(invoice, plays) {
 
-  let result = `Statement for ${invoice.customer}\n`;
-  for (const aPerformance of invoice.performances) {
-    result += `  ${playFor(aPerformance).name}: ${usdFormat(amountFor(aPerformance))} (${aPerformance.audience} seats)\n`;
-    
-  }
+  let result = invoice.performances.reduce(
+    (preview, current) => `${preview}  ${playFor(current).name}: ${usdFormat(amountFor(current))} (${current.audience} seats)\n`,
+    `Statement for ${invoice.customer}\n`
+  );
+  
   result += `Amount owed is ${usdFormat(totalAmount())}\n`;
   result += `You earned ${totalVolumeCredits()} credits\n`;
+
   return result;
 
   function totalAmount() {
     return invoice.performances.reduce((preview, current) => preview + amountFor(current), 0);
   }
-
   function totalVolumeCredits() {
     return invoice.performances.reduce((preview, current) => preview + volumeCreditsFor(current), 0);
   }
-
   function usdFormat(aNumber){
       return new Intl.NumberFormat('en-US', {
         style: 'currency',
@@ -35,7 +34,6 @@ function statement(invoice, plays) {
   function playFor(aPerformance) {
     return plays[aPerformance.playID];
   }
-
   function amountFor(aPerformance) {
     let amountResult = 0;
     switch (playFor(aPerformance).type) {
